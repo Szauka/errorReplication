@@ -1,0 +1,8 @@
+# exclude directories
+node_modules
+coverage
+dist
+.nyc_output
+
+# exculde files
+.env

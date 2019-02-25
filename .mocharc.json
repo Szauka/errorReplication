@@ -1,0 +1,23 @@
+{
+    "diff": true,
+    "bail": true,
+    "full-trace": true,
+    "recursive": true,
+    "extension": [
+        "ts"
+    ],
+    "spec": [
+        "src/**/*.spec.ts",
+        "test/**/*.spec.ts"
+    ],
+    "package": "package.json",
+    "reporter": "spec",
+    "require": [
+        "ts-node/register",
+        "tsconfig-paths/register",
+        "scripts/mocha/register"
+    ],
+    "slow": 75,
+    "timeout": 10000,
+    "ui": "bdd"
+}
