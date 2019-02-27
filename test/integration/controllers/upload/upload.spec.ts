@@ -1,8 +1,9 @@
-import { ExpressApplication } from '@tsed/common';
-import { TestContext } from '@tsed/testing';
+import {ExpressApplication} from '@tsed/common';
+import {TestContext} from '@tsed/testing';
 import * as Path from 'path';
 import * as SuperTest from 'supertest';
-import { Server } from '../../../../src/app';
+import {expect} from 'chai';
+import {Server} from '../../../../src/app';
 
 describe('Archive endpoint', () => {
 
@@ -22,9 +23,11 @@ describe('Archive endpoint', () => {
                 .attach('file', Path.join(__dirname, '/test.txt'))
                 .expect(400)
                 .end((err, res: any) => {
-                    if (err || !res.OK) {
+                    if (err) {
                         throw (err);
                     }
+
+                    expect(res.text).to.eq('This should be thrown and seen on the test failure.');
 
                     done();
                 });
